@@ -1,2 +1,2 @@
 FROM openshift/jenkins-1-centos7
-COPY jenkins.war /usr/lib/jenkins/jenkins.war
+curl http://updates.jenkins-ci.org/download/war/2.32.1/jenkins.war -o /usr/lib/jenkins/jenkins.war
