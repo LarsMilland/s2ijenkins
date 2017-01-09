@@ -9,14 +9,14 @@ RUN mkdir -p /opt/agent-bond \
  && chmod 444 /opt/agent-bond/agent-bond.jar \
  && chmod 755 /opt/run-java-options
 ADD jmx_exporter_config.yml /opt/agent-bond/
-EXPOSE 8778 9779
-
-#RUN mkdir -p /opt/prometheus
-#ADD prometheus-options /opt/run-java-options
-#ADD dropwizard-prometheus-0.0.1.jar /opt/prometheus/dropwizard-prometheus-0.0.1.jar
-#RUN chmod 444 /opt/prometheus/dropwizard-prometheus-0.0.1.jar \
-# && chmod 755 /opt/run-java-options
 #EXPOSE 8778 9779
+
+RUN mkdir -p /opt/prometheus
+#ADD prometheus-options /opt/run-java-options
+ADD dropwizard-prometheus-0.0.1.jar /opt/prometheus/dropwizard-prometheus-0.0.1.jar
+RUN chmod 444 /opt/prometheus/dropwizard-prometheus-0.0.1.jar
+
+EXPOSE 8778 9779 9780 
 
 COPY run /usr/local/s2i/
 RUN chmod 755 /usr/local/s2i/run
