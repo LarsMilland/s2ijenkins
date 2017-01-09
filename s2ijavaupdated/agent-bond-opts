@@ -38,7 +38,7 @@ fi
 opts=" -javaagent:/opt/prometheus/prometheus-0.0.1.jar=prometheus.listener.port:9780 "
 
 if [ -z ${AB_OFF+x} ]; then
-   opts="-javaagent:$dir/agent-bond.jar"
+   opts="${opts}-javaagent:$dir/agent-bond.jar"
    config=${AB_CONFIG:-$dir/agent-bond.properties}
    if [ -f "$config" ]; then
       # Configuration takes precedence
