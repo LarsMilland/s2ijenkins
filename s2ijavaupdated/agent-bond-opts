@@ -35,7 +35,7 @@ if [ x$escape_sep != x ]; then
 fi
 
 
-opts=" -javaagent:/opt/prometheus/prometheus-0.0.1.jar=prometheus.listener.port:9780 "
+opts=" -javaagent:/opt/prometheus/dropwizard-prometheus-0.0.1.jar=prometheus.listener.port:9780 "
 
 if [ -z ${AB_OFF+x} ]; then
    opts="${opts}-javaagent:$dir/agent-bond.jar"
